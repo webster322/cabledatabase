@@ -1,0 +1,2 @@
+class Fibre < ApplicationRecord
+end

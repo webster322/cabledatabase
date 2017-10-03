@@ -9,5 +9,6 @@ class WiresController < ApplicationController
   end
 
   def view
+    @cable = Cable.all
   end
 end

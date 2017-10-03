@@ -8,7 +8,23 @@
     </div>
 
     <div class="col-sm-9">
-      <h1>Hello World</h1>
+
+      <table class="table">
+        <thead>
+          <th>Nazwa kabla</th>
+          <th>Obiekt początkowy</th>
+          <th>Obiekt końcowy</th>
+        </thead>
+        <tbody>
+          <%= @cable.each do |value| %>
+            <tr>
+              <td><%= cable['name'] %></td>
+              <td><%= cable['from'] %></td>
+              <td><%= cable['to'] %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>

@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'cable/new'
+
+  get 'cable/edit'
+
+  get 'cable/view'
+
+  get 'cable/delete'
+
   get 'home/new'
   get 'home/index'
   root 'home#index'

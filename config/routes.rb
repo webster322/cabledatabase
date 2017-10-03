@@ -1,13 +1,12 @@
 Rails.application.routes.draw do
-  get 'cable/new'
+  get 'wires/delete'
 
-  get 'cable/edit'
+  get 'wires/new'
 
-  get 'cable/view'
+  get 'wires/edit'
 
-  get 'cable/delete'
+  get 'wires/view'
 
-  get 'home/new'
   get 'home/index'
   root 'home#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

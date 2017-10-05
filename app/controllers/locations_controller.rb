@@ -1,6 +1,6 @@
 class LocationsController < ApplicationController
   def index
-    @locations = Location.all
+    @locations = Location.order(:name)
   end
 
   def new
@@ -10,6 +10,7 @@ class LocationsController < ApplicationController
   def create
     @location = Location.new(locations_params)
     if @location.save
+      flash[:notice] = "Obiekt utworzony pomyślnie"
       redirect_to locations_path
     end
   end

@@ -8,7 +8,9 @@
     </div>
 
     <div class="col-sm-9">
-
+      <% if flash[:notice] %>
+        <div class="alert alert-success" role="alert"><%= flash[:notice] %></div>
+      <% end %>
       <table class="table">
         <thead>
           <th>Nazwa obiektu</th>

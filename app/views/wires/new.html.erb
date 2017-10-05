@@ -13,7 +13,7 @@
           <%= f.label :name, "Nazwa kabla" %>
           <%= f.text_field :name, class: 'form-control' %>
           <%= f.label :name, "Obiekt początkowy" %>
-          <% options = options_from_collection_for_select(@locations, :id, :name) %>
+          <% options = options_from_collection_for_select(@locations, :name, :name) %>
           <%= f.select :from, options, class: 'form-control' %>
           <%= f.label :name, "Obiekt końcowy" %>
           <%= f.select :to, options, class: 'form-control' %>

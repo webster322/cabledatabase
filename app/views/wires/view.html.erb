@@ -8,7 +8,9 @@
     </div>
 
     <div class="col-sm-9">
-
+      <% if flash[:notice] %>
+        <div class="alert alert-success" role="alert"><%= flash[:notice] %></div>
+      <% end %>
       <table class="table">
         <thead>
           <th>Nazwa kabla</th>
@@ -16,11 +18,11 @@
           <th>Obiekt końcowy</th>
         </thead>
         <tbody>
-          <%= @cable.each do |value| %>
+          <%= @cables.each do |value| %>
             <tr>
-              <td><%= cable['name'] %></td>
-              <td><%= cable['from'] %></td>
-              <td><%= cable['to'] %></td>
+              <td><%= value['name'] %></td>
+              <td><%= value['from'] %></td>
+              <td><%= value['to'] %></td>
             </tr>
           <% end %>
         </tbody>

@@ -8,6 +8,18 @@
     </div>
 
     <div class="col-sm-9">
+      <%= form_for(@cable, url: wires_create_path) do |f| %>
+        <div class="form-group">
+          <%= f.label :name, "Nazwa kabla" %>
+          <%= f.text_field :name, class: 'form-control' %>
+          <%= f.label :name, "Obiekt początkowy" %>
+          <% options = options_from_collection_for_select(@locations, :id, :name) %>
+          <%= f.select :from, options, class: 'form-control' %>
+          <%= f.label :name, "Obiekt końcowy" %>
+          <%= f.select :to, options, class: 'form-control' %>
+        </div>
+        <%= f.submit "Dodaj kabel", class: "btn btn-primary" %>
+      <% end %>
     </div>
   </div>
 </div>

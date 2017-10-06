@@ -1,5 +1,9 @@
 class WiresController < ApplicationController
   def delete
+    @cable = Cable.find(params[:id])
+    @cable.destroy
+    flash[:success] = "Kabel usunięty pomyślnie"
+    redirect_to wires_view_path
   end
 
   def new

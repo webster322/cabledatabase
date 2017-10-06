@@ -16,6 +16,10 @@ class LocationsController < ApplicationController
   end
 
   def delete
+    @location = Location.find(params[:id])
+    @location.destroy
+    flash[:success] = "Obiekt usunięty pomyślnie"
+    redirect_to locations_path
   end
 
   private

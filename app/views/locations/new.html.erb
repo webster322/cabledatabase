@@ -8,6 +8,9 @@
     </div>
 
     <div class="col-sm-9">
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
       <h1>Dodawanie obiektu</h1>
       <%= form_for @location do |f| %>
         <div class="form-group">

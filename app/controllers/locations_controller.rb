@@ -10,8 +10,8 @@ class LocationsController < ApplicationController
   def create
     @location = Location.new(locations_params)
     if @location.save
-      flash[:notice] = "Obiekt utworzony pomyślnie"
-      redirect_to locations_path
+      flash[:success] = "Obiekt utworzony pomyślnie"
+      redirect_to locations_new_path
     end
   end
 

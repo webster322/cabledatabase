@@ -14,8 +14,8 @@ class WiresController < ApplicationController
   def create
     @cable = Cable.new(locations_params)
     if @cable.save
-      flash[:notice] = "Kabel utworzony pomyślnie"
-      redirect_to wires_view_path
+      flash[:success] = "Kabel utworzony pomyślnie"
+      redirect_to wires_new_path
     end
   end
 

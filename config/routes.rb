@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'fibres/index'
+
+  get 'fibres/new'
+
+  get 'fibres/delete'
+
   get 'locations/index'
 
   get 'locations/create'
@@ -21,5 +27,6 @@ Rails.application.routes.draw do
   root 'home#index'
   resources :locations
   resources :wires
+  resources :fibres
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

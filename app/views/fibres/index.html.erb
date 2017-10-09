@@ -19,12 +19,26 @@
           <th>Nr włókna</th>
           <th>Nr kabla</th>
           <th>Lokalizacja</th>
-          <th>Zajętość</th>
+          <th>Półka</th>
           <th>Uszkodzenie</th>
           <th>Nazwa systemu</th>
           <th>Nazwa szafy</th>
           <th>Pomieszczenie</th>
         </thead>
+        <tbody>
+          <%= @fibres.each do |value| %>
+            <tr>
+              <td><%= value['number'] %></td>
+              <td><%= value['name'] %></td>
+              <td><%= value['location'] %></td>
+              <td><%= value['shelf'] %></td>
+              <td><%= value['damage'] %></td>
+              <td><%= value['system'] %></td>
+              <td><%= value['cabinet_name'] %></td>
+              <td><%= value['room'] %></td>
+            </tr>
+          <% end %>
+        </tbody>
     </div>
   </div>
 </div>

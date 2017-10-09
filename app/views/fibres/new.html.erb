@@ -1,2 +1,43 @@
-<h1>Fibres#new</h1>
-<p>Find me in app/views/fibres/new.html.erb</p>
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-3 sidenav">
+      <ul class="nav nav-pills nav-stacked">
+        <li><%=link_to 'Wszystkie włókna', fibres_path %></li>
+        <li class="active"><%=link_to 'Dodaj nowe włókna', fibres_new_path %></li>
+        <hr>
+        <li><%=link_to 'Wszystkie obiekty', locations_index_path %></li>
+        <li><%=link_to 'Wszystkie kable', wires_view_path %></li>
+      </ul>
+    </div>
+
+    <div class="col-sm-9">
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
+      <h1>Dodawanie obiektu</h1>
+      <%= form_for(@fibre, url: fibres_create_path) do |f| %>
+        <div class="form-group">
+          <%= f.label :number, "Numer włókna" %>
+          <%= f.text_field :number, class: "form_control" %> <br />
+          <%= f.label :name, "Numer kabla" %>
+          <% cable_options = options_from_collection_for_select(@wires, :name, :name) %>
+          <%= f.select :name, cable_options, class: 'form-control' %> <br />
+          <% options = options_from_collection_for_select(@locations, :name, :name) %>
+          <%= f.label :location, "Lokalizacja" %>
+          <%= f.select :location, options, class: 'form-control' %> <br />
+          <%= f.label :shelf, "Półka" %>
+          <%= f.text_field :shelf, class: "form_control" %> <br />
+          <%= f.label :damage, "Uszkodzony?" %>
+          <%= f.check_box :damage %> <br />
+          <%= f.label :system, "Nazwa systemu" %>
+          <%= f.text_field :system, class: "form_control" %> <br />
+          <%= f.label :cabinet_name, "Nazwa szafy" %>
+          <%= f.text_field :cabinet_name, class: "form_control" %> <br />
+          <%= f.label :room, "Pomieszczenie" %>
+          <%= f.text_field :room, class: "form_control" %>
+        </div>
+        <%= f.submit "Dodaj obiekt", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   get 'fibres/delete'
 
+  post 'fibres/create'
+
   get 'locations/index'
 
   get 'locations/create'

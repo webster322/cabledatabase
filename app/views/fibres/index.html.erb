@@ -36,6 +36,7 @@
               <td><%= value['system'] %></td>
               <td><%= value['cabinet_name'] %></td>
               <td><%= value['room'] %></td>
+              <td><%= link_to 'Usuń', fibres_delete_path(:id => value['id']), class: "btn btn-danger btn-xs"%>
             </tr>
           <% end %>
         </tbody>

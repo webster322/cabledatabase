@@ -18,6 +18,10 @@ class FibresController < ApplicationController
   end
 
   def delete
+    @fibre = Fibre.find(params[:id])
+    @fibre.destroy
+    flash[:success] = "Włókno usunięto pomyślnie"
+    redirect_to fibres_path
   end
 
   private

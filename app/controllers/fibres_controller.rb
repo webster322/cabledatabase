@@ -24,6 +24,18 @@ class FibresController < ApplicationController
     redirect_to fibres_path
   end
 
+  def edit
+    @fibre = Fibre.find(params[:id])
+  end
+
+  def update
+    @fibre = Fibre.find(params[:id])
+    if @fibre.update_attributes(user_params)
+      flash[:success] = "Włókno zaktualizowane pomyślnie"
+      redirect_to fibres_path
+    end
+  end
+
   private
 
   def locations_params

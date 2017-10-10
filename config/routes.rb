@@ -7,6 +7,10 @@ Rails.application.routes.draw do
 
   post 'fibres/create'
 
+  get 'fibres/edit'
+
+  post 'fibres/update'
+
   get 'locations/index'
 
   get 'locations/create'

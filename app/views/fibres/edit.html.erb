@@ -3,7 +3,7 @@
     <div class="col-sm-3 sidenav">
       <ul class="nav nav-pills nav-stacked">
         <li><%=link_to 'Wszystkie włókna', fibres_path %></li>
-        <li class="active"><%=link_to 'Dodaj nowe włókna', fibres_new_path %></li>
+        <li><%=link_to 'Dodaj nowe włókna', fibres_new_path %></li>
         <hr>
         <li><%=link_to 'Wszystkie obiekty', locations_index_path %></li>
         <li><%=link_to 'Wszystkie kable', wires_view_path %></li>
@@ -14,8 +14,8 @@
       <% flash.each do |key, value| %>
         <div class="alert alert-<%= key %>"><%= value %></div>
       <% end %>
-      <h1>Dodawanie włókna</h1>
-      <%= form_for(@fibre, url: fibres_create_path) do |f| %>
+      <h1>Edytowanie włókna</h1>
+      <%= form_for(@fibre, url: fibres_update_path) do |f| %>
         <div class="form-group">
           <%= f.label :number, "Numer włókna" %>
           <%= f.text_field :number, class: "form_control" %> <br />
@@ -36,7 +36,7 @@
           <%= f.label :room, "Pomieszczenie" %>
           <%= f.text_field :room, class: "form_control" %>
         </div>
-        <%= f.submit "Dodaj obiekt", class: "btn btn-primary" %>
+        <%= f.submit "Zapisz zmiany", class: "btn btn-primary" %>
       <% end %>
     </div>
   </div>

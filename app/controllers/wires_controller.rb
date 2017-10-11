@@ -17,8 +17,13 @@ class WiresController < ApplicationController
 
   def create
     @cable = Cable.new(locations_params)
-    if @cable.save
-      flash[:success] = "Kabel utworzony pomyślnie"
+    unless Cable.where(name: @cable.name)
+      if @cable.save
+        flash[:success] = "Kabel utworzony pomyślnie"
+        redirect_to wires_new_path
+      end
+    else
+      flash[:danger] = "Błąd! Kabel istnieje!"
       redirect_to wires_new_path
     end
   end

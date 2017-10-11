@@ -15,16 +15,14 @@
         <div class="alert alert-<%= key %>"><%= value %></div>
       <% end %>
       <h1>Edytowanie włókna</h1>
-      <%= form_for(@fibre, url: fibres_update_path) do |f| %>
+      <%= form_for(@fibre, url: fibres_update_path, method: :get) do |f| %>
         <div class="form-group">
           <%= f.label :number, "Numer włókna" %>
           <%= f.text_field :number, class: "form_control" %> <br />
           <%= f.label :name, "Numer kabla" %>
-          <% cable_options = options_from_collection_for_select(@wires, :name, :name) %>
-          <%= f.select :name, cable_options, class: 'form-control' %> <br />
-          <% options = options_from_collection_for_select(@locations, :name, :name) %>
+          <%= f.select :name, options_for_select(@wires.map{ |u| [u.name, u.name] }, :selected => f.object.name), class: 'form-control' %> <br />
           <%= f.label :location, "Lokalizacja" %>
-          <%= f.select :location, options, class: 'form-control' %> <br />
+          <%= f.select :location, options_for_select(@locations.map{ |u| [u.name, u.name] }, :selected => f.object.location), class: 'form-control' %> <br />
           <%= f.label :shelf, "Półka" %>
           <%= f.text_field :shelf, class: "form_control" %> <br />
           <%= f.label :damage, "Uszkodzony?" %>

@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   get 'fibres/edit'
 
-  post 'fibres/update'
+  get 'fibres/update'
 
   get 'locations/index'
 

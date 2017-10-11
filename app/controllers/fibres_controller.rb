@@ -10,7 +10,7 @@ class FibresController < ApplicationController
   end
 
   def create
-    @fibre = Fibre.new(locations_params)
+    @fibre = Fibre.new(user_params)
     if @fibre.save
       flash[:success] = "Włókno utworzone pomyślnie"
       redirect_to fibres_new_path
@@ -26,19 +26,20 @@ class FibresController < ApplicationController
 
   def edit
     @fibre = Fibre.find(params[:id])
+    @locations = Location.all
+    @wires = Cable.all
   end
 
   def update
     @fibre = Fibre.find(params[:id])
-    if @fibre.update_attributes(user_params)
-      flash[:success] = "Włókno zaktualizowane pomyślnie"
-      redirect_to fibres_path
-    end
+    @fibre.update(user_params)
+    flash[:success] = "Włókno zaktualizowane pomyślnie"
+    redirect_to fibres_path
   end
 
   private
 
-  def locations_params
+  def user_params
     params.require(:fibre).permit(:number, :name, :location, :shelf, :damage, :system, :cabinet_name, :room)
   end
 end

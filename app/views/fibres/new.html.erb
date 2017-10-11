@@ -21,10 +21,10 @@
           <%= f.text_field :number, class: "form_control" %> <br />
           <%= f.label :name, "Numer kabla" %>
           <% cable_options = options_from_collection_for_select(@wires, :name, :name) %>
-          <%= f.select :name, cable_options, class: 'form-control' %> <br />
+          <%= f.select :name, cable_options, include_blank: "Wybierz kabel...", class: 'form-control' %> <br />
           <% options = options_from_collection_for_select(@locations, :name, :name) %>
           <%= f.label :location, "Lokalizacja" %>
-          <%= f.select :location, options, class: 'form-control' %> <br />
+          <%= f.select :location, options, include_blank: "Wybierz obiekt...", class: 'form-control' %> <br />
           <%= f.label :shelf, "Półka" %>
           <%= f.text_field :shelf, class: "form_control" %> <br />
           <%= f.label :damage, "Uszkodzony?" %>

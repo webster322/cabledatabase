@@ -15,14 +15,21 @@ class FibresController < ApplicationController
 
   def create
     @fibre = Fibre.new(user_params)
-    unless Fibre.where(number: @fibre.number, name: @fibre.name)
+    if Fibre.exists?(:number => @fibre.number)
+      if Fibre.exists?(:name => @fibre.name)
+        flash[:danger] = "Błąd! Włókno istnieje!"
+        redirect_to fibres_new_path
+      else
+        if @fibre.save
+          flash[:success] = "Włókno utworzone pomyślnie"
+          redirect_to fibres_new_path
+        end
+      end
+    else
       if @fibre.save
         flash[:success] = "Włókno utworzone pomyślnie"
         redirect_to fibres_new_path
       end
-    else
-      flash[:danger] = "Błąd! Włókno istnieje!"
-      redirect_to fibres_new_path
     end
   end
 

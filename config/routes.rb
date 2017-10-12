@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   get 'fibres/update'
 
+  post 'fibres/search'
+
   get 'locations/index'
 
   get 'locations/create'

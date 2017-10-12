@@ -3,6 +3,10 @@ class FibresController < ApplicationController
     @fibres = Fibre.all
   end
 
+  def search
+    @fibres = Fibre.where(name: params[:name], location: params[:location])
+  end
+
   def new
     @fibre = Fibre.new
     @locations = Location.all

@@ -9,9 +9,12 @@ class LocationsController < ApplicationController
 
   def create
     @location = Location.new(locations_params)
-    unless Location.where(name: @location.name)
+    unless Location.exists?(:name => @location.name)
       if @location.save
         flash[:success] = "Obiekt utworzony pomyślnie"
+        redirect_to locations_new_path
+      else
+        flash[:danger] = "Błąd!"
         redirect_to locations_new_path
       end
     else

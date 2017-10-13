@@ -23,11 +23,17 @@ class FibresController < ApplicationController
         if @fibre.save
           flash[:success] = "Włókno utworzone pomyślnie"
           redirect_to fibres_new_path
+        else
+          flash[:danger] = "Błąd!"
+          redirect_to fibres_new_path
         end
       end
     else
       if @fibre.save
         flash[:success] = "Włókno utworzone pomyślnie"
+        redirect_to fibres_new_path
+      else
+        flash[:danger] = "Błąd!"
         redirect_to fibres_new_path
       end
     end

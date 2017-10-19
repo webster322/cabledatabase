@@ -15,19 +15,9 @@ class FibresController < ApplicationController
 
   def create
     @fibre = Fibre.new(user_params)
-    if Fibre.exists?(:number => @fibre.number)
-      if Fibre.exists?(:name => @fibre.name)
-        flash[:danger] = "Błąd! Włókno istnieje!"
-        redirect_to fibres_new_path
-      else
-        if @fibre.save
-          flash[:success] = "Włókno utworzone pomyślnie"
-          redirect_to fibres_new_path
-        else
-          flash[:danger] = "Błąd!"
-          redirect_to fibres_new_path
-        end
-      end
+    if (Fibre.exists?(:number => @fibre.number)) && (Fibre.exists?(:name => @fibre.name)) && (Fibre.exists?(:location => @fibre.location))
+      flash[:danger] = "Błąd! Włókno istnieje!"
+      redirect_to fibres_new_path
     else
       if @fibre.save
         flash[:success] = "Włókno utworzone pomyślnie"

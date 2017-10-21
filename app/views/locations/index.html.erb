@@ -19,7 +19,7 @@
           <th>Nazwa obiektu</th>
         </thead>
         <tbody>
-          <%= @locations.each do |value| %>
+          <% @locations.each do |value| %>
             <tr>
               <td><%= value['name'] %></td>
               <td><%= link_to 'Usuń', locations_delete_path(:id => value['id']), class: "btn btn-danger btn-xs", data: { confirm: "Jesteś pewien?" }%>

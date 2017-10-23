@@ -25,9 +25,14 @@ class LocationsController < ApplicationController
 
   def delete
     @location = Location.find(params[:id])
-    @location.destroy
-    flash[:success] = "Obiekt usunięty pomyślnie"
-    redirect_to locations_path
+    if (Fibre.exists?(:location => @location.name)) && (Cable.exists?(:from => @location.name)) && (Cable.exists?(:to => @location.name))
+      flash[:danger] = "Błąd! W bazie istnieje włókno lub kabel wskazujące na ten obiekt!"
+      redirect_to locations_path
+    else
+      @location.destroy
+      flash[:success] = "Obiekt usunięty pomyślnie"
+      redirect_to locations_path
+    end
   end
 
   private

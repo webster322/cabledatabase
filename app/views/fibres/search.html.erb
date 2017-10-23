@@ -17,9 +17,9 @@
       <h1>Wyniki wyszukiwania</h1>
       <%= form_tag(fibres_search_path) do %>
         <%= label_tag 'Kabel: ' %>
-        <%= select_tag "name", options_from_collection_for_select(Fibre.all, "name", "name") %>
+        <%= select_tag "name", options_from_collection_for_select(Cable.all, "name", "name") %>
         <%= label_tag 'Obiekt: ' %>
-        <%= select_tag "location", options_from_collection_for_select(Fibre.all, "location", "location") %>
+        <%= select_tag "location", options_from_collection_for_select(Location.all, "name", "name") %>
         <%= submit_tag "Szukaj", class: "btn btn-primary btn-xs" %>
       <% end %>
       <table class="table">

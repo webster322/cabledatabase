@@ -1,9 +1,14 @@
 class WiresController < ApplicationController
   def delete
     @cable = Cable.find(params[:id])
-    @cable.destroy
-    flash[:success] = "Kabel usunięty pomyślnie"
-    redirect_to wires_view_path
+    if Fibre.exists?(:name => @cable.name)
+      flash[:danger] = "Błąd! W bazie istnieje włókno wskazujące na ten kabel!"
+      redirect_to wires_view_path
+    else
+      @cable.destroy
+      flash[:success] = "Kabel usunięty pomyślnie"
+      redirect_to wires_view_path
+    end
   end
 
   def new

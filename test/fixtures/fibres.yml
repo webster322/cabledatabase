@@ -3,13 +3,11 @@
 one:
   name: MyString
   location: MyString
-  busy: false
   damage: false
   system: MyString
 
 two:
   name: MyString
   location: MyString
-  busy: false
   damage: false
   system: MyString

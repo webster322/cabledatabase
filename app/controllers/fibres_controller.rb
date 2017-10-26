@@ -4,7 +4,11 @@ class FibresController < ApplicationController
   end
 
   def search
-    @fibres = Fibre.where(name: params[:name], location: params[:location])
+    if (params.has_key?(:name)) && (params.has_key?(:location))
+      @fibres = Fibre.where(name: params[:name], location: params[:location])
+    else
+      redirect_to fibres_path
+    end
   end
 
   def new
@@ -37,15 +41,23 @@ class FibresController < ApplicationController
   end
 
   def edit
-    @fibre = Fibre.find(params[:id])
-    @locations = Location.all
-    @wires = Cable.all
+    if(params.has_key?(:id))
+      @fibre = Fibre.find(params[:id])
+      @locations = Location.all
+      @wires = Cable.all
+    else
+      redirect_to fibres_path
+    end
   end
 
   def update
     @fibre = Fibre.find(params[:fibre][:id])
     @fibre.update(user_params)
     flash[:success] = "Włókno zaktualizowane pomyślnie"
+    redirect_to fibres_path
+  end
+
+  def show
     redirect_to fibres_path
   end
 

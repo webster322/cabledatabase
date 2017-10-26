@@ -11,9 +11,14 @@ class FibresControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get delete" do
-    get fibres_delete_url
-    assert_response :success
+  test "should get edit" do
+    get fibres_edit_url
+    assert_response :redirect
+  end
+
+  test "should get search" do
+    get fibres_search_url
+    assert_response :redirect
   end
 
 end

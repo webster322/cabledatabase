@@ -23,6 +23,14 @@ class CableTest < ActiveSupport::TestCase
     @cable.to = " "
     assert_not @cable.valid?
   end
+
+  test "name should be unique" do
+    duplicate_cable = @cable.dup
+    duplicate_cable.name = @cable.name
+    @cable.save
+    assert_not duplicate_cable.valid?
+  end
+  
   # test "the truth" do
   #   assert true
   # end

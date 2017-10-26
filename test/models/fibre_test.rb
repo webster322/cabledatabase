@@ -33,6 +33,7 @@ class FibreTest < ActiveSupport::TestCase
     @fibre.room = " "
     assert_not @fibre.valid?
   end
+
   # test "the truth" do
   #   assert true
   # end

@@ -13,7 +13,13 @@ class LocationTest < ActiveSupport::TestCase
     @location.name = " "
     assert_not @location.valid?
   end
-  
+
+  test "name should be unique" do
+    duplicate_location = @location.dup
+    duplicate_location.name = @location.name
+    @location.save
+    assert_not duplicate_location.valid?
+  end
   # test "the truth" do
   #   assert true
   # end

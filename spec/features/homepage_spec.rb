@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'my home page' do
+feature ' in my home page' do
   scenario 'click cable button' do
     visit root_path
     click_link "Wyświetl kable dostępne w bazie"

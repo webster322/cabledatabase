@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'in location page' do
   scenario 'click add location button' do
-    visit locations_new_path
+    visit locations_path
     click_link "Dodaj nowy obiekt"
     expect(page.current_path).to eq locations_new_path
   end

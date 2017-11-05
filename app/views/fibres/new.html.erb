@@ -5,7 +5,7 @@
         <li><%=link_to 'Wszystkie włókna', fibres_path %></li>
         <li class="active"><%=link_to 'Dodaj nowe włókna', fibres_new_path %></li>
         <hr>
-        <li><%=link_to 'Wszystkie obiekty', locations_index_path %></li>
+        <li><%=link_to 'Wszystkie obiekty', locations_path %></li>
         <li><%=link_to 'Wszystkie kable', wires_view_path %></li>
       </ul>
     </div>
@@ -19,7 +19,7 @@
         <div class="form-group">
           <%= f.label :number, "Numer włókna" %>
           <%= f.text_field :number, class: "form_control" %> <br />
-          <%= f.label :name, "Numer kabla" %>
+          <%= f.label :name, "Nazwa kabla" %>
           <% cable_options = options_from_collection_for_select(@wires, :name, :name) %>
           <%= f.select :name, cable_options, include_blank: "Wybierz kabel...", class: 'form-control' %> <br />
           <% options = options_from_collection_for_select(@locations, :name, :name) %>
@@ -36,7 +36,7 @@
           <%= f.label :room, "Pomieszczenie" %>
           <%= f.text_field :room, class: "form_control" %>
         </div>
-        <%= f.submit "Dodaj obiekt", class: "btn btn-primary" %>
+        <%= f.submit "Dodaj włókno", class: "btn btn-primary" %>
       <% end %>
     </div>
   </div>

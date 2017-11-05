@@ -19,7 +19,7 @@ feature 'in location page' do
     expect(page.current_path).to eq fibres_path
   end
 
-  scenario 'click location button' do
+  scenario 'add click location button' do
     visit locations_new_path
     click_link "Wszystkie obiekty"
     expect(page.current_path).to eq locations_path
@@ -27,7 +27,6 @@ feature 'in location page' do
 
   scenario 'checking empty form to add location' do
     visit locations_new_path
-    fill_in "Nazwa obiektu", :with => ""
     click_button "Dodaj obiekt"
     expect(page).to have_content "Błąd!"
   end

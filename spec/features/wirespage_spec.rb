@@ -9,8 +9,8 @@ feature 'in wires page' do
 
   scenario 'click location button' do
     visit wires_view_path
-    click_link "Wszystkie kable"
-    expect(page.current_path).to eq wires_view_path
+    click_link "Wszystkie obiekty"
+    expect(page.current_path).to eq locations_path
   end
 
   scenario 'click fibres button' do
@@ -19,7 +19,7 @@ feature 'in wires page' do
     expect(page.current_path).to eq fibres_path
   end
 
-  scenario 'click location button' do
+  scenario 'add click location button' do
     visit wires_new_path
     click_link "Wszystkie kable"
     expect(page.current_path).to eq wires_view_path
@@ -27,7 +27,6 @@ feature 'in wires page' do
 
   scenario 'checking empty form to add wires' do
     visit wires_new_path
-    fill_in "Nazwa kabla", :with => ""
     click_button "Dodaj kabel"
     expect(page).to have_content "Błąd!"
   end
@@ -36,7 +35,6 @@ feature 'in wires page' do
     visit locations_new_path
     fill_in "Nazwa obiektu", :with => "A1"
     click_button "Dodaj obiekt"
-    visit locations_new_path
     fill_in "Nazwa obiektu", :with => "A2"
     click_button "Dodaj obiekt"
     visit wires_new_path
@@ -51,7 +49,6 @@ feature 'in wires page' do
     visit locations_new_path
     fill_in "Nazwa obiektu", :with => "A1"
     click_button "Dodaj obiekt"
-    visit locations_new_path
     fill_in "Nazwa obiektu", :with => "A2"
     click_button "Dodaj obiekt"
     visit wires_new_path

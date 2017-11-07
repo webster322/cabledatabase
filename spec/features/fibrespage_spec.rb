@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'in fibres page' do
   scenario 'click add fibres button' do
     visit fibres_path
-    click_link "Dodaj nowe włókna"
+    click_link "Dodaj włókno"
     expect(page.current_path).to eq fibres_new_path
   end
 
@@ -38,12 +38,12 @@ feature 'in fibres page' do
     fill_in "Nazwa obiektu", :with => "A2"
     click_button "Dodaj obiekt"
     visit wires_new_path
-    fill_in "Nazwa kabla", :with => "111"
+    fill_in "Nazwa", :with => "111"
     select("A1", from: "cable_from")
     select("A2", from: "cable_to")
     click_button "Dodaj kabel"
     visit fibres_new_path
-    fill_in "Numer włókna", :with => "1"
+    fill_in "Nr włókna", :with => "1"
     select("111", from: "fibre_name")
     select("A1", from: "fibre_location")
     fill_in "Półka", :with => "1"
@@ -60,12 +60,12 @@ feature 'in fibres page' do
     fill_in "Nazwa obiektu", :with => "A2"
     click_button "Dodaj obiekt"
     visit wires_new_path
-    fill_in "Nazwa kabla", :with => "111"
+    fill_in "Nazwa", :with => "111"
     select("A1", from: "cable_from")
     select("A2", from: "cable_to")
     click_button "Dodaj kabel"
     visit fibres_new_path
-    fill_in "Numer włókna", :with => "1"
+    fill_in "Nr włókna", :with => "1"
     select("111", from: "fibre_name")
     select("A1", from: "fibre_location")
     fill_in "Półka", :with => "1"
@@ -73,7 +73,7 @@ feature 'in fibres page' do
     fill_in "Nazwa szafy", :with => "PS1"
     fill_in "Pomieszczenie", :with => "401"
     click_button "Dodaj włókno"
-    fill_in "Numer włókna", :with => "1"
+    fill_in "Nr włókna", :with => "1"
     select("111", from: "fibre_name")
     select("A1", from: "fibre_location")
     fill_in "Półka", :with => "1"
@@ -91,12 +91,12 @@ feature 'in fibres page' do
     fill_in "Nazwa obiektu", :with => "A2"
     click_button "Dodaj obiekt"
     visit wires_new_path
-    fill_in "Nazwa kabla", :with => "111"
+    fill_in "Nazwa", :with => "111"
     select("A1", from: "cable_from")
     select("A2", from: "cable_to")
     click_button "Dodaj kabel"
     visit fibres_new_path
-    fill_in "Numer włókna", :with => "1"
+    fill_in "Nr włókna", :with => "1"
     select("111", from: "fibre_name")
     select("A1", from: "fibre_location")
     fill_in "Półka", :with => "1"

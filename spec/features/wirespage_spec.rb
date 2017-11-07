@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'in wires page' do
   scenario 'click add wires button' do
     visit wires_view_path
-    click_link "Dodaj nowy kabel"
+    click_link "Dodaj kabel"
     expect(page.current_path).to eq wires_new_path
   end
 
@@ -38,7 +38,7 @@ feature 'in wires page' do
     fill_in "Nazwa obiektu", :with => "A2"
     click_button "Dodaj obiekt"
     visit wires_new_path
-    fill_in "Nazwa kabla", :with => "111"
+    fill_in "Nazwa", :with => "111"
     select("A1", from: "cable_from")
     select("A2", from: "cable_to")
     click_button "Dodaj kabel"
@@ -52,11 +52,11 @@ feature 'in wires page' do
     fill_in "Nazwa obiektu", :with => "A2"
     click_button "Dodaj obiekt"
     visit wires_new_path
-    fill_in "Nazwa kabla", :with => "111"
+    fill_in "Nazwa", :with => "111"
     select("A1", from: "cable_from")
     select("A2", from: "cable_to")
     click_button "Dodaj kabel"
-    fill_in "Nazwa kabla", :with => "111"
+    fill_in "Nazwa", :with => "111"
     select("A1", from: "cable_from")
     select("A2", from: "cable_to")
     click_button "Dodaj kabel"

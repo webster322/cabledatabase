@@ -2,11 +2,11 @@
   <div class="row content">
     <div class="col-sm-3 sidenav">
       <ul class="nav nav-pills nav-stacked">
-        <li><%=link_to 'Wszystkie obiekty', locations_path %></li>
-        <li class="active"><%=link_to 'Dodaj nowy obiekt', locations_new_path %></li>
+        <li><%=link_to (t "all_locations"), locations_path %></li>
+        <li class="active"><%=link_to (t "add_locations"), locations_new_path %></li>
         <hr>
-        <li><%=link_to 'Wszystkie kable', wires_view_path %></li>
-        <li><%=link_to 'Wszystkie włókna', fibres_path %></li>
+        <li><%=link_to (t "all_wires"), wires_view_path %></li>
+        <li><%=link_to (t "all_fibres"), fibres_path %></li>
       </ul>
     </div>
 
@@ -14,13 +14,13 @@
       <% flash.each do |key, value| %>
         <div class="alert alert-<%= key %>"><%= value %></div>
       <% end %>
-      <h1>Dodawanie obiektu</h1>
+      <h1><%= t "adding_location" %></h1>
       <%= form_for @location do |f| %>
         <div class="form-group">
-          <%= f.label :name, "Nazwa obiektu" %>
+          <%= f.label :name, (t "location_name") %>
           <%= f.text_field :name, class: "form_control" %>
         </div>
-        <%= f.submit "Dodaj obiekt", class: "btn btn-primary" %>
+        <%= f.submit (t "add_location"), class: "btn btn-primary" %>
       <% end %>
     </div>
   </div>

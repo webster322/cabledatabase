@@ -2,11 +2,11 @@
   <div class="row content">
     <div class="col-sm-3 sidenav">
       <ul class="nav nav-pills nav-stacked">
-        <li><%=link_to 'Wszystkie kable', wires_view_path %></li>
-        <li class="active"><%=link_to 'Utwórz nowy kabel', wires_new_path %></li>
+        <li><%=link_to (t "all_wires"), wires_view_path %></li>
+        <li class="active"><%=link_to (t "add_wires"), wires_new_path %></li>
         <hr>
-        <li><%=link_to 'Wszystkie obiekty', locations_path %></li>
-        <li><%=link_to 'Wszystkie włókna', fibres_path %></li>
+        <li><%=link_to (t "all_locations"), locations_path %></li>
+        <li><%=link_to (t "all_fibres"), fibres_path %></li>
       </ul>
     </div>
 
@@ -14,17 +14,18 @@
       <% flash.each do |key, value| %>
         <div class="alert alert-<%= key %>"><%= value %></div>
       <% end %>
+      <h1><%= t "add_wires" %></h1>
       <%= form_for(@cable, url: wires_create_path) do |f| %>
         <div class="form-group">
-          <%= f.label :name, "Nazwa kabla" %>
+          <%= f.label :name, (t "name") %>
           <%= f.text_field :name, class: 'form-control' %>
-          <%= f.label :name, "Obiekt początkowy" %>
+          <%= f.label :name, (t "from") %>
           <% options = options_from_collection_for_select(@locations, :name, :name) %>
           <%= f.select :from, options, class: 'form-control' %>
-          <%= f.label :name, "Obiekt końcowy" %>
+          <%= f.label :name, (t "to") %>
           <%= f.select :to, options, class: 'form-control' %>
         </div>
-        <%= f.submit "Dodaj kabel", class: "btn btn-primary" %>
+        <%= f.submit (t "add_wires"), class: "btn btn-primary" %>
       <% end %>
     </div>
   </div>

@@ -2,11 +2,11 @@
   <div class="row content">
     <div class="col-sm-3 sidenav">
       <ul class="nav nav-pills nav-stacked">
-        <li class="active"><%=link_to 'Wszystkie kable', wires_view_path %></li>
-        <li><%=link_to 'Dodaj nowy kabel', wires_new_path %></li>
+        <li class="active"><%=link_to (t "all_wires"), wires_view_path %></li>
+        <li><%=link_to (t "add_wires"), wires_new_path %></li>
         <hr>
-        <li><%=link_to 'Wszystkie obiekty', locations_path %></li>
-        <li><%=link_to 'Wszystkie włókna', fibres_path %></li>
+        <li><%=link_to (t "all_locations"), locations_path %></li>
+        <li><%=link_to (t "all_fibres"), fibres_path %></li>
       </ul>
     </div>
 
@@ -16,9 +16,9 @@
       <% end %>
       <table class="table">
         <thead>
-          <th>Nazwa kabla</th>
-          <th>Obiekt początkowy</th>
-          <th>Obiekt końcowy</th>
+          <th><%= t "cable_name" %></th>
+          <th><%= t "from" %></th>
+          <th><%= t "to" %></th>
         </thead>
         <tbody>
           <% @cables.each do |value| %>
@@ -26,7 +26,7 @@
               <td><%= value['name'] %></td>
               <td><%= value['from'] %></td>
               <td><%= value['to'] %></td>
-              <td><%= link_to 'Usuń', wires_delete_path(:id => value['id']), class: "btn btn-danger btn-xs", data: { confirm: "Jesteś pewien?" }%>
+              <td><%= link_to (t "delete"), wires_delete_path(:id => value['id']), class: "btn btn-danger btn-xs", data: { confirm: (t "are_you_sure") }%>
             </tr>
           <% end %>
         </tbody>

@@ -2,17 +2,17 @@
   <div class="row content">
     <div class="col-sm-3 sidenav">
       <ul class="nav nav-pills nav-stacked">
-        <li><%=link_to 'Wszystkie obiekty', locations_path %></li>
-        <li><%=link_to 'Wszystkie kable', wires_view_path %></li>
-        <li><%=link_to 'Wszystkie włókna', fibres_path %></li>
+        <li><%=link_to (t "all_fibres"), locations_path %></li>
+        <li><%=link_to (t "all_locations"), wires_view_path %></li>
+        <li><%=link_to (t "all_wires"), fibres_path %></li>
       </ul>
     </div>
 
     <div class="col-sm-9">
       <div class="jumbotron">
-        <h1>Witaj w aplikacji</h1>
-        <p>Wybierz co chcesz zrobić</p>
-        <p><%=link_to 'Wyświetl kable dostępne w bazie', wires_view_path, class: "btn btn-primary" %> <%=link_to 'Wyświetl obiekty dostępne w bazie', locations_path, class: "btn btn-primary" %> <%=link_to 'Wyświetl włókna dostępne w bazie', fibres_path, class: "btn btn-primary" %></p>
+        <h1><%= (t "welcome") %></h1>
+        <p><%= (t "choose") %></p>
+        <p><%=link_to (t "display_cable"), wires_view_path, class: "btn btn-primary" %> <%=link_to (t "display_location"), locations_path, class: "btn btn-primary" %> <%=link_to (t "display_fiber"), fibres_path, class: "btn btn-primary" %></p>
       </div>
     </div>
   </div>

@@ -2,11 +2,11 @@
   <div class="row content">
     <div class="col-sm-3 sidenav">
       <ul class="nav nav-pills nav-stacked">
-        <li><%=link_to 'Wszystkie włókna', fibres_path %></li>
-        <li><%=link_to 'Dodaj nowe włókna', fibres_new_path %></li>
+        <li><%=link_to (t "all_fibres"), fibres_path %></li>
+        <li><%=link_to (t "add_fibre"), fibres_new_path %></li>
         <hr>
-        <li><%=link_to 'Wszystkie obiekty', locations_index_path %></li>
-        <li><%=link_to 'Wszystkie kable', wires_view_path %></li>
+        <li><%=link_to (t "all_locations"), locations_index_path %></li>
+        <li><%=link_to (t "all_wires"), wires_view_path %></li>
       </ul>
     </div>
 
@@ -14,28 +14,28 @@
       <% flash.each do |key, value| %>
         <div class="alert alert-<%= key %>"><%= value %></div>
       <% end %>
-      <h1>Edytowanie włókna</h1>
+      <h1><%= t "editing_fibre" %></h1>
       <%= form_for(@fibre, url: fibres_update_path ) do |f| %>
         <div class="form-group">
-          <%= f.label :number, "Numer włókna" %>
+          <%= f.label :number, (t "num_of_fiber") %>
           <%= f.text_field :number, class: "form_control" %> <br />
-          <%= f.label :name, "Numer kabla" %>
+          <%= f.label :name, (t "cable_name") %>
           <%= f.select :name, options_for_select(@wires.map{ |u| [u.name, u.name] }, :selected => f.object.name), class: 'form-control' %> <br />
-          <%= f.label :location, "Lokalizacja" %>
+          <%= f.label :location, (t "location") %>
           <%= f.select :location, options_for_select(@locations.map{ |u| [u.name, u.name] }, :selected => f.object.location), class: 'form-control' %> <br />
-          <%= f.label :shelf, "Półka" %>
+          <%= f.label :shelf, (t "shelf") %>
           <%= f.text_field :shelf, class: "form_control" %> <br />
-          <%= f.label :damage, "Uszkodzony?" %>
+          <%= f.label :damage, (t "bad")+"?" %>
           <%= f.check_box :damage %> <br />
-          <%= f.label :system, "Nazwa systemu" %>
+          <%= f.label :system, (t "name_of_system") %>
           <%= f.text_field :system, class: "form_control" %> <br />
-          <%= f.label :cabinet_name, "Nazwa szafy" %>
+          <%= f.label :cabinet_name, (t "name_of_cabinet") %>
           <%= f.text_field :cabinet_name, class: "form_control" %> <br />
-          <%= f.label :room, "Pomieszczenie" %>
+          <%= f.label :room, (t "room") %>
           <%= f.text_field :room, class: "form_control" %>
           <%= f.hidden_field :id, :value => @fibre.id %>
         </div>
-        <%= f.submit "Zapisz zmiany", class: "btn btn-primary" %>
+        <%= f.submit (t "save"), class: "btn btn-primary" %>
       <% end %>
     </div>
   </div>

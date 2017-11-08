@@ -35,6 +35,8 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
+  get 'locale', to: 'locales#save_locale', as: :set_locale
+
   resources :locations
 
   resources :wires

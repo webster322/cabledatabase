@@ -19,18 +19,13 @@ class FibresController < ApplicationController
 
   def create
     @fibre = Fibre.new(user_params)
-    if (Fibre.exists?(:number => @fibre.number)) && (Fibre.exists?(:name => @fibre.name)) && (Fibre.exists?(:location => @fibre.location))
-      flash[:danger] = t "fiber_error"
+    if @fibre.save
+      flash[:success] = t "fiber_created"
       redirect_to fibres_new_path
     else
-      if @fibre.save
-        flash[:success] = t "fiber_created"
-        redirect_to fibres_new_path
-      else
-        flash[:danger] = t "error"
-        redirect_to fibres_new_path
-      end
-    end
+      flash[:danger] = t "error"
+      redirect_to fibres_new_path
+    end  
   end
 
   def delete

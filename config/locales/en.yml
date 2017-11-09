@@ -251,3 +251,16 @@ en:
   to: To
   name: Name
   language: Choose language
+  error: Error!
+  fiber_created: Fiber created succesfully!
+  fiber_deleted: Fiber removed succesfully!
+  fiber_updated: Fiber updated succesfully!
+  fiber_error: Erorr! Fiber exist!
+  location_created: Location created succesfully!
+  location_deleted: Location removed succesfully!
+  location_error: Erorr! Location exist!
+  location_used: Error! Location used!
+  wires_created: Cable created succesfully!
+  wires_deleted: Cable removed succesfully!
+  wires_error: Erorr! Cable exist!
+  wires_used: Error! Cable used!

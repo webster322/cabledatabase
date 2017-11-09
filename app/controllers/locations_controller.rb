@@ -11,14 +11,14 @@ class LocationsController < ApplicationController
     @location = Location.new(locations_params)
     unless Location.exists?(:name => @location.name)
       if @location.save
-        flash[:success] = "Obiekt utworzony pomyślnie"
+        flash[:success] = t "location_created"
         redirect_to locations_new_path
       else
-        flash[:danger] = "Błąd!"
+        flash[:danger] = t "error"
         redirect_to locations_new_path
       end
     else
-      flash[:danger] = "Błąd! Obiekt istnieje!"
+      flash[:danger] = t "location_error"
       redirect_to locations_new_path
     end
   end
@@ -26,11 +26,11 @@ class LocationsController < ApplicationController
   def delete
     @location = Location.find(params[:id])
     if (Fibre.exists?(:location => @location.name)) && (Cable.exists?(:from => @location.name)) && (Cable.exists?(:to => @location.name))
-      flash[:danger] = "Błąd! W bazie istnieje włókno lub kabel wskazujące na ten obiekt!"
+      flash[:danger] = t "location_used"
       redirect_to locations_path
     else
       @location.destroy
-      flash[:success] = "Obiekt usunięty pomyślnie"
+      flash[:success] = t "location_deleted"
       redirect_to locations_path
     end
   end

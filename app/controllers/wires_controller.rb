@@ -2,11 +2,11 @@ class WiresController < ApplicationController
   def delete
     @cable = Cable.find(params[:id])
     if Fibre.exists?(:name => @cable.name)
-      flash[:danger] = "Błąd! W bazie istnieje włókno wskazujące na ten kabel!"
+      flash[:danger] = t "wires_used"
       redirect_to wires_view_path
     else
       @cable.destroy
-      flash[:success] = "Kabel usunięty pomyślnie"
+      flash[:success] = t "wires_deleted"
       redirect_to wires_view_path
     end
   end
@@ -24,14 +24,14 @@ class WiresController < ApplicationController
     @cable = Cable.new(locations_params)
     unless Cable.exists?(:name => @cable.name)
       if @cable.save
-        flash[:success] = "Kabel utworzony pomyślnie"
+        flash[:success] = t "wires_created"
         redirect_to wires_new_path
       else
-        flash[:danger] = "Błąd!"
+        flash[:danger] = t "error"
         redirect_to wires_new_path
       end
     else
-      flash[:danger] = "Błąd! Kabel istnieje!"
+      flash[:danger] = t "wires_error"
       redirect_to wires_new_path
     end
   end

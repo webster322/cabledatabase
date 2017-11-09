@@ -20,14 +20,14 @@ class FibresController < ApplicationController
   def create
     @fibre = Fibre.new(user_params)
     if (Fibre.exists?(:number => @fibre.number)) && (Fibre.exists?(:name => @fibre.name)) && (Fibre.exists?(:location => @fibre.location))
-      flash[:danger] = "Błąd! Włókno istnieje!"
+      flash[:danger] = t "fiber_error"
       redirect_to fibres_new_path
     else
       if @fibre.save
-        flash[:success] = "Włókno utworzone pomyślnie"
+        flash[:success] = t "fiber_created"
         redirect_to fibres_new_path
       else
-        flash[:danger] = "Błąd!"
+        flash[:danger] = t "error"
         redirect_to fibres_new_path
       end
     end
@@ -36,7 +36,7 @@ class FibresController < ApplicationController
   def delete
     @fibre = Fibre.find(params[:id])
     @fibre.destroy
-    flash[:success] = "Włókno usunięto pomyślnie"
+    flash[:success] = t "fiber_deleted"
     redirect_to fibres_path
   end
 
@@ -53,7 +53,7 @@ class FibresController < ApplicationController
   def update
     @fibre = Fibre.find(params[:fibre][:id])
     @fibre.update(user_params)
-    flash[:success] = "Włókno zaktualizowane pomyślnie"
+    flash[:success] = t "fiber_updated"
     redirect_to fibres_path
   end
 

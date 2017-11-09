@@ -280,3 +280,16 @@ pl:
   to: Obiekt końcowy
   name: Nazwa
   language: Wybierz język
+  error: Błąd!
+  fiber_created: Włókno utworzone pomyślnie!
+  fiber_deleted: Włókno usunięto pomyślnie!
+  fiber_updated: Włókno zaktualizowano pomyślnie!
+  fiber_error: Błąd! Włókno istnieje!
+  location_created: Obiekt utworzony pomyślnie!
+  location_deleted: Obiekt usunięty pomyślnie
+  location_error: Błąd! Obiekt istnieje!
+  location_used: Błąd! Obiekt używany!
+  wires_created: Kabel utworzony pomyślnie!
+  wires_deleted: Kabel usunięty pomyślnie
+  wires_error: Błąd! Kabel istnieje!
+  wires_used: Błąd! Kabel używany!

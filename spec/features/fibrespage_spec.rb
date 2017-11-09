@@ -51,7 +51,7 @@ feature 'in fibres page' do
     fill_in "Nazwa szafy", :with => "PS1"
     fill_in "Pomieszczenie", :with => "401"
     click_button "Dodaj włókno"
-    expect(page).to have_content "Włókno utworzone pomyślnie"
+    expect(page).to have_content "Włókno utworzone pomyślnie!"
   end
   scenario 'checking exsisting fibres' do
     visit locations_new_path

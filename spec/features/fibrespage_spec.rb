@@ -53,37 +53,7 @@ feature 'in fibres page' do
     click_button "Dodaj włókno"
     expect(page).to have_content "Włókno utworzone pomyślnie!"
   end
-  scenario 'checking exsisting fibres' do
-    visit locations_new_path
-    fill_in "Nazwa obiektu", :with => "A1"
-    click_button "Dodaj obiekt"
-    fill_in "Nazwa obiektu", :with => "A2"
-    click_button "Dodaj obiekt"
-    visit wires_new_path
-    fill_in "Nazwa", :with => "111"
-    select("A1", from: "cable_from")
-    select("A2", from: "cable_to")
-    click_button "Dodaj kabel"
-    visit fibres_new_path
-    fill_in "Nr włókna", :with => "1"
-    select("111", from: "fibre_name")
-    select("A1", from: "fibre_location")
-    fill_in "Półka", :with => "1"
-    fill_in "Nazwa systemu", :with => "AG"
-    fill_in "Nazwa szafy", :with => "PS1"
-    fill_in "Pomieszczenie", :with => "401"
-    click_button "Dodaj włókno"
-    fill_in "Nr włókna", :with => "1"
-    select("111", from: "fibre_name")
-    select("A1", from: "fibre_location")
-    fill_in "Półka", :with => "1"
-    fill_in "Nazwa systemu", :with => "AG"
-    fill_in "Nazwa szafy", :with => "PS1"
-    fill_in "Pomieszczenie", :with => "401"
-    click_button "Dodaj włókno"
-    expect(page).to have_content "Błąd! Włókno istnieje!"
-  end
-
+  
   scenario 'search' do
     visit locations_new_path
     fill_in "Nazwa obiektu", :with => "A1"

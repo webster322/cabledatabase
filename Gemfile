@@ -20,6 +20,7 @@ gem 'uglifier', '~> 3.2'
 # gem 'therubyracer', platforms: :ruby
 gem 'will_paginate', '~> 3.1', '>= 3.1.6'
 gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.1'
+gem 'devise', '~> 4.3'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2', '>= 4.2.2'

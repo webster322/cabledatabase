@@ -21,7 +21,7 @@
         <%= select_tag "location", options_from_collection_for_select(Location.all, "name", "name") %>
         <%= submit_tag (t "search"), class: "btn btn-primary btn-xs" %>
       <% end %>
-      <table class="table">
+      <table class="table table-striped table-condensed">
         <thead>
           <th><%= t "num_of_fiber"%></th>
           <th><%= t "num_of_wires"%></th>
@@ -55,3 +55,8 @@
     </div>
   </div>
 </div>
+<footer class="container-fluid">
+  <div class="center">
+      <%= will_paginate @fibres, renderer: BootstrapPagination::Rails %>
+  </div>
+</footer>

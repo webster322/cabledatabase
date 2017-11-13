@@ -238,6 +238,10 @@ pl:
       long: "%B %d, %Y %H:%M"
       short: "%d %b %H:%M"
     pm: po południu
+  will_paginate:
+    previous_label: "&#8592; Poprzednia"
+    next_label: "Następna &#8594;"
+    page_gap: "&hellip;"
   fiber_database: Baza światłowodów
   all_fibres: Wszystkie włókna
   all_locations: Wszystkie obiekty

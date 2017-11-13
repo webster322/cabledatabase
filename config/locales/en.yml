@@ -211,6 +211,10 @@ en:
       long: "%B %d, %Y %H:%M"
       short: "%d %b %H:%M"
     pm: pm
+  will_paginate:
+    previous_label: "&#8592; Previous"
+    next_label: "Next &#8594;"
+    page_gap: "&hellip;"
   fibre_database: Fiber database
   all_fibres: All fibres
   all_locations: All locations

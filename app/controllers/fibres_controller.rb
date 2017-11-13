@@ -1,11 +1,12 @@
 class FibresController < ApplicationController
   def index
-    @fibres = Fibre.all
+    @fibres = Fibre.paginate(:page => params[:page], :per_page => 10)
   end
 
   def search
     if (params.has_key?(:name)) && (params.has_key?(:location))
-      @fibres = Fibre.where(name: params[:name], location: params[:location])
+      fibre = Fibre.where(name: params[:name], location: params[:location])
+      @fibres = fibre.paginate(:page => params[:page], :per_page => 10)
     else
       redirect_to fibres_path
     end
@@ -25,7 +26,7 @@ class FibresController < ApplicationController
     else
       flash[:danger] = t "error"
       redirect_to fibres_new_path
-    end  
+    end
   end
 
   def delete

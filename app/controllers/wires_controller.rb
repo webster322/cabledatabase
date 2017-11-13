@@ -17,7 +17,7 @@ class WiresController < ApplicationController
   end
 
   def view
-    @cables = Cable.all
+    @cables = Cable.paginate(:page => params[:page], :per_page => 10)
   end
 
   def create

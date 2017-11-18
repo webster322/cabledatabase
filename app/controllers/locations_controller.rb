@@ -1,4 +1,5 @@
 class LocationsController < ApplicationController
+  before_action :authenticate_user!
   def index
     loc = Location.order(:name)
     @locations = loc.paginate(:page => params[:page], :per_page => 10)

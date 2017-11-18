@@ -268,3 +268,19 @@ en:
   wires_deleted: Cable removed succesfully!
   wires_error: Erorr! Cable exist!
   wires_used: Error! Cable used!
+  log_in: "Log in"
+  sending_registration_instruction: "Resend confirmation instructions"
+  send_instructions: "Send instructions"
+  password: "Password"
+  remember_me: "Remember me"
+  log_in: "Log in"
+  log_out: "Log out"
+  sign_up: "Sign up"
+  forgot_password: "Forgot your password?"
+  leave_blank: "leave blank if you don't want to change it"
+  cancel_account: "Cancel my account"
+  unhappy: "Unhappy?"
+  back: "Back"
+  update: "Update"
+  current_password: "Current password"
+  edit_profile: "Edit profile"

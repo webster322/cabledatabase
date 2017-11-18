@@ -297,3 +297,19 @@ pl:
   wires_deleted: Kabel usunięty pomyślnie
   wires_error: Błąd! Kabel istnieje!
   wires_used: Błąd! Kabel używany!
+  log_in: "Zaloguj się"
+  sending_registration_instruction: "Wysłanie instrukcji potwierdzenia rejestracji"
+  send_instructions: "Wyślij instrukcję"
+  password: "Hasło"
+  remember_me: "Zapamiętaj mnie"
+  log_in: "Zaloguj"
+  log_out: "Wyloguj"
+  sign_up: "Utwórz konto"
+  forgot_password: "Zapomniałeś hasła?"
+  leave_blank: "pozostaw puste, jeżeli nie chcesz go zmieniać"
+  cancel_account: "Usuń konto"
+  unhappy: "Nie jesteś zadowolony?"
+  back: "Wstecz"
+  update: "Zaktualizuj"
+  current_password: "Bieżące hasło"
+  edit_profile: "Edytuj profil"

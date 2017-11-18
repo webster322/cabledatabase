@@ -1,4 +1,5 @@
 class WiresController < ApplicationController
+  before_action :authenticate_user!
   def delete
     @cable = Cable.find(params[:id])
     if Fibre.exists?(:name => @cable.name)
